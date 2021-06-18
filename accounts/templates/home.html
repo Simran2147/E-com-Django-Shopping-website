@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+     <h1>HOME PAGE</h1>
+
+
+     {% if user.is_authenticated %}
+           <p>ppp  {{ user.email }}</p>
+           <a href="{% url 'accounts:logout' %}">Click Here to logout.</a>
+     {% else %}
+           <a href="{% url 'accounts:login' %}">Click here to Login</a>
+     {% endif %}
+{% endblock %}
