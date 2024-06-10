@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="breadcrumbs">
+    <div class="container">
+        <ol class="breadcrumbs breadcrumbs1 animated wow slideInLeft" data-wow-delay = "0.5s">
+
+            <li><a href="{% url 'accounts:home' %}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home </a> </li>
+            <li class="active">Register Page</li>
+        </ol>
+    </div>
+</div>
+
+<!-- Register Class Begins-->
+<div class="register">
+    <div class="container">
+        <h2>Register Here</h2>
+        <div class="login-form-grids">
+            <h5>Profile Information</h5>
+
+            <form action="#" method="POST">
+
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="form-group">
+                        {{ field.label_tag }}
+                        {{ field }}
+                    </div>
+                {% endfor %}
+                <input type="submit" value="Register">
+            </form>
+            <div class="register-home">
+                <a href="{% url 'accounts:home' %}">Home</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
